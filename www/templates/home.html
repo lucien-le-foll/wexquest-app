@@ -1,0 +1,14 @@
+<ion-view view-title="Places">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="place in places" href="#/app/place/{{place.name}}">
+        {{place.name}}
+        <ion-list>
+            <ion-item ng-repeat="poi in place.tags">
+                {{ poi.name }}
+            </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
