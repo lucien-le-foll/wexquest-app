@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
             {name : 'Kia Ora Mini Farm', found : true, coord : "52.676073, -6.294367"},
             {name : "Courtown Woods", found : false, coord : "52.676073, -6.294367"}
         ]},
-        {name : 'Kimore Quay', picture : 'kilmore.jpg', complete : false, tags : [
+        {name : 'Kilmore Quay', picture : 'kilmore.jpg', complete : false, tags : [
             {name : 'Old Boat', found : true, coord : "52.176436, -6.586435"},
             {name : 'Ballyteige Burrow', found : false, coord : "52.176436, -6.586435"},
             {name : "Beach", found : false, coord : "52.176436, -6.586435"}
@@ -69,6 +69,18 @@ angular.module('starter.controllers', [])
             {name : "Ring of Hook", found : true, coord : "52.394536, -6.944944"}
         ]}
     ];
+})
+
+.controller('CameraCtrl', function($scope, $cordovaBarcodeScanner){
+    document.addEventListener('deviceready', function(){
+        $cordovaBarcodeScanner
+            .scan()
+            .then(function(barcodeData){
+                alert(barcodeData);
+            }, function(error){
+
+            });
+    })
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
