@@ -18,9 +18,7 @@ angular.module('starter.controllers', [])
 
     $scope.openMap = function(lat, lon){
         $scope.map = { center: { latitude: lat, longitude: lon }, zoom: 12 };
-        var markercenter = $scope.map.center;
-        $scope.markercenter = markercenter;
-        console.log($scope.map);
+        $scope.markercenter = {latitude : lat, longitude : lon};
         $scope.modal.show();
     };
 
