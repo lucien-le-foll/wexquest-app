@@ -3,11 +3,11 @@
       <div class="card list" ng-repeat="place in places">
           <div class="item item-icon-right">
               <h2>{{ place.name }}</h2>
-              <i class="icon ion-ios-location"></i>
+              <i class="icon ion-ios-location" ng-click="openMap({{place.coord}})"></i>
           </div>
 
           <div class="item item-image">
-              <img src="img/{{ place.picture }}">
+              <img src="img/places/{{ place.picture }}">
           </div>
 
           <div class="item">

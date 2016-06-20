@@ -21,3 +21,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.angular-google-map-container { height: 669px; }
+
+.close-map {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 999;
+}

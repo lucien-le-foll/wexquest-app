@@ -9,35 +9,23 @@ angular.module('starter.controllers', [])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
 
-    // Form data for the login modal
-    $scope.loginData = {};
-
-    // Create the login modal that we will use later
-    $ionicModal.fromTemplateUrl('templates/login.html', {
-        scope: $scope
+    $ionicModal.fromTemplateUrl('templates/map.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
     }).then(function(modal) {
         $scope.modal = modal;
     });
 
-    // Triggered in the login modal to close it
-    $scope.closeLogin = function() {
-        $scope.modal.hide();
-    };
-
-    // Open the login modal
-    $scope.login = function() {
+    $scope.openMap = function(lat, lon){
+        $scope.map = { center: { latitude: lat, longitude: lon }, zoom: 12 };
+        var markercenter = $scope.map.center;
+        $scope.markercenter = markercenter;
+        console.log($scope.map);
         $scope.modal.show();
     };
 
-    // Perform the login action when the user submits the login form
-    $scope.doLogin = function() {
-        console.log('Doing login', $scope.loginData);
-
-        // Simulate a login delay. Remove this and replace with your login
-        // code if using a login system
-        $timeout(function() {
-            $scope.closeLogin();
-        }, 1000);
+    $scope.closeMap = function(){
+        $scope.modal.hide();
     };
 
     $scope.warningPoi = function(){
@@ -85,7 +73,7 @@ angular.module('starter.controllers', [])
     }
 })
 
-.controller('CameraCtrl', function($scope, $cordovaBarcodeScanner){
+.controller('CameraCtrl', function($scope, $cordovaBarcodeScanner, $location, $cordovaToast){
     document.addEventListener('deviceready', function(){
         $cordovaBarcodeScanner
             .scan()
@@ -94,11 +82,13 @@ angular.module('starter.controllers', [])
                     for(var n in $scope.places[i].tags){
                         if($scope.places[i].tags[n].name == barcodeData.text){
                             $scope.places[i].tags[n].found = true;
+                            $location.path('/app/poi/'+$scope.places[i].tags[n].name);
                         }
                     }
                 }
             }, function(error){
-
+                $cordovaToast.show("Invalid tag", 'long', 'bottom')
+                $location.path('/app/home');
             });
     })
 })
