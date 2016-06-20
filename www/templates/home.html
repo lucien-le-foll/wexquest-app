@@ -1,14 +1,23 @@
 <ion-view view-title="Wexquest">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="place in places" href="#/app/place/{{place.name}}">
-        {{place.name}}
-        <ion-list>
-            <ion-item ng-repeat="poi in place.tags">
-                {{ poi.name }}
-            </ion-item>
-        </ion-list>
-      </ion-item>
-    </ion-list>
+      <div class="card list" ng-repeat="place in places">
+          <div class="item">
+              <h2>{{ place.name }}</h2>
+          </div>
+
+          <div class="item item-image">
+              <img src="img/{{ place.picture }}">
+          </div>
+
+          <div class="item">
+              <ion-list>
+                  <ion-item ng-repeat="poi in place.tags" class="item-icon-right">
+                      {{ poi.name }}
+                      <i class="icon ion-checkmark-round" ng-if="poi.found"></i>
+                      <i class="icon ion-close-round" ng-if="!poi.found"></i>
+                  </ion-item>
+              </ion-list>
+          </div>
+      </div>
   </ion-content>
 </ion-view>

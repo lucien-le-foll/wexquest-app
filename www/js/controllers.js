@@ -39,9 +39,7 @@ angular.module('starter.controllers', [])
             $scope.closeLogin();
         }, 1000);
     };
-})
 
-.controller('PlacesCtrl', function($scope) {
     $scope.places = [
         {name : 'Wexford Town', picture : 'wex-town.jpg', complete : false, tags : [
             {name : 'Opera', found : true, coord : "52.336031, -6.465723"},
@@ -71,12 +69,22 @@ angular.module('starter.controllers', [])
     ];
 })
 
+.controller('PlacesCtrl', function($scope) {
+
+})
+
 .controller('CameraCtrl', function($scope, $cordovaBarcodeScanner){
     document.addEventListener('deviceready', function(){
         $cordovaBarcodeScanner
             .scan()
             .then(function(barcodeData){
-                alert(barcodeData);
+                for(var i in $scope.places){
+                    for(var n in $scope.places[i].tags){
+                        if($scope.places[i].tags[n].name == barcodeData.text){
+                            $scope.places[i].tags[n].found = true;
+                        }
+                    }
+                }
             }, function(error){
 
             });
