@@ -1,8 +1,9 @@
 <ion-view view-title="Wexquest">
   <ion-content>
       <div class="card list" ng-repeat="place in places">
-          <div class="item">
+          <div class="item item-icon-right">
               <h2>{{ place.name }}</h2>
+              <i class="icon ion-ios-location"></i>
           </div>
 
           <div class="item item-image">
@@ -14,7 +15,7 @@
                   <ion-item ng-repeat="poi in place.tags" class="item-icon-right">
                       {{ poi.name }}
                       <a href="#/app/poi/{{ poi.name }}" ng-if="poi.found"><i class="icon ion-checkmark-round balanced" ></i></a>
-                      <i class="icon ion-close-round energized" ng-if="!poi.found"></i>
+                      <i class="icon ion-close-round energized" ng-if="!poi.found" ng-click="warningPoi()"></i>
                   </ion-item>
               </ion-list>
           </div>

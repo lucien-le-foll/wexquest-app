@@ -42,16 +42,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         }
     })
 
-    .state('app.place', {
-        url : '/place/:id',
-        views : {
-            'menuContent': {
-                templateUrl: 'templates/place.html',
-                controller: 'PlacesCtrl'
-            }
-        }
-    })
-
     .state('app.camera', {
         url : '/camera',
         views : {
