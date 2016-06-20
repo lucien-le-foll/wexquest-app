@@ -41,30 +41,30 @@ angular.module('starter.controllers', [])
     };
 
     $scope.places = [
-        {name : 'Wexford Town', picture : 'wex-town.jpg', complete : false, tags : [
-            {name : 'Opera', found : true, coord : "52.336031, -6.465723"},
-            {name : 'Crescent', found : true, coord : "52.336031, -6.465723"},
-            {name : "Mooney's", found : false, coord : "52.336031, -6.465723"}
+        {name : 'Wexford Town', coord : "52.336031, -6.465723", picture : 'wex-town.jpg', complete : false, tags : [
+            {name : 'Opera', found : true},
+            {name : 'Crescent', found : true},
+            {name : "Mooney's", found : false}
         ]},
-        {name : 'Gorey', picture : 'gorey.jpg', complete : false, tags : [
-            {name : 'Wells House', found : false, coord : "52.676073, -6.294367"},
-            {name : 'Kia Ora Mini Farm', found : true, coord : "52.676073, -6.294367"},
-            {name : "Courtown Woods", found : false, coord : "52.676073, -6.294367"}
+        {name : 'Gorey', picture : 'gorey.jpg', coord : "52.676073, -6.294367", complete : false, tags : [
+            {name : 'Wells House', found : false},
+            {name : 'Kia Ora Mini Farm', found : true},
+            {name : "Courtown Woods", found : false}
         ]},
-        {name : 'Kilmore Quay', picture : 'kilmore.jpg', complete : false, tags : [
-            {name : 'Old Boat', found : true, coord : "52.176436, -6.586435"},
-            {name : 'Ballyteige Burrow', found : false, coord : "52.176436, -6.586435"},
-            {name : "Beach", found : false, coord : "52.176436, -6.586435"}
+        {name : 'Kilmore Quay', picture : 'kilmore.jpg', coord : "52.176436, -6.586435", complete : false, tags : [
+            {name : 'Old Boat', found : true},
+            {name : 'Ballyteige Burrow', found : false},
+            {name : "Beach", found : false}
         ]},
-        {name : 'Rosslare', picture : 'rosslare.jpg', complete : true, tags : [
-            {name : 'Rosslare Golf', found : true, coord : "52.252093, -6.341748"},
-            {name : 'Carnsor Point', found : true, coord : "52.252093, -6.341748"},
-            {name : "The Oscar Wilde", found : true, coord : "52.252093, -6.341748"}
+        {name : 'Rosslare', picture : 'rosslare.jpg', coord : "52.252093, -6.341748", complete : true, tags : [
+            {name : 'Rosslare Golf', found : true},
+            {name : 'Carnsor Point', found : true},
+            {name : "The Oscar Wilde", found : true}
         ]},
-        {name : 'New Ross', picture : 'new-ross.jpg', complete : true, tags : [
-            {name : 'Dunbrody Famine Ship Experience', found : true, coord : "52.394536, -6.944944"},
-            {name : 'Hook Head Safaris', found : true, coord : "52.394536, -6.944944"},
-            {name : "Ring of Hook", found : true, coord : "52.394536, -6.944944"}
+        {name : 'New Ross', picture : 'new-ross.jpg', coord : "52.394536, -6.944944", complete : true, tags : [
+            {name : 'Dunbrody Famine Ship Experience', found : true},
+            {name : 'Hook Head Safaris', found : true},
+            {name : "Ring of Hook", found : true}
         ]}
     ];
 })

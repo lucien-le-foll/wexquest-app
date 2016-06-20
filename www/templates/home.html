@@ -13,8 +13,8 @@
               <ion-list>
                   <ion-item ng-repeat="poi in place.tags" class="item-icon-right">
                       {{ poi.name }}
-                      <i class="icon ion-checkmark-round" ng-if="poi.found"></i>
-                      <i class="icon ion-close-round" ng-if="!poi.found"></i>
+                      <a href="#/app/poi/{{ poi.name }}" ng-if="poi.found"><i class="icon ion-checkmark-round balanced" ></i></a>
+                      <i class="icon ion-close-round energized" ng-if="!poi.found"></i>
                   </ion-item>
               </ion-list>
           </div>
